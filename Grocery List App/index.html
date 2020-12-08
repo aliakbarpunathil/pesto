@@ -1,0 +1,68 @@
+<html>
+<head>
+<!--link rel="stylesheet" href="css/bootstrap.min.css"-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<title>
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.panel-group{padding-top:10px;}
+</style>
+
+
+</head>
+<body>
+<div class="container" >
+	<div class="jumbotron bg-secondary" >
+		<h1 class="text-center text-white">GROCERY LIST APP</h1>
+	</div>
+
+
+	<div class="row">
+		<div class = "col-sm-11">
+			<textarea row = "1" style="width:100%;" id = "groceryContent"></textarea>
+		</div>
+
+		<div class = "col-sm-1">
+			<input type="button" name="add" id = "add_grocery_btn" value="+">
+		</div>
+		
+	</div>
+	<div class="panel-group" id = "groceryList">
+		
+	</div>
+</div>
+
+<script>
+
+function create_list(grocery_list,count){
+var div = document.createElement("DIV");
+var div2 = document.createElement("DIV");
+div.setAttribute('class', 'panel panel-default');
+div2.setAttribute('class', 'panel-body');
+
+div2.innerHTML = grocery_list;
+$("#groceryList").append(div);
+div.append(div2);
+}
+
+
+$("#add_grocery_btn").click(function(){
+	var count = $("#groceryList").children().length;
+	if(count < 5){
+		create_list($('#groceryContent').val(),count);
+	}
+	else{
+	alert("Limit Exceeded");
+	}
+});
+
+
+
+
+</script>
+
+</body>
+</html>
